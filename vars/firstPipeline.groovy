@@ -1,4 +1,4 @@
- //import 
+//import 
 import com.i27academy.builds.Calculator
 
 
@@ -9,6 +9,9 @@ def call(Map pipelineParams){
     pipeline{
     agent{
         label 'java-slave'
+    }
+    environment{
+        APPLICATION_NAME = "${pipelineParams.appName}"
     }
     stages{
         stage('calculator'){
@@ -23,9 +26,10 @@ def call(Map pipelineParams){
         stage('Build'){
             steps{
                 echo "*****build the application****"
+                echo "****I am Building for ${env.APPLICATION_NAME}"
             }
         }
-        stage('Test'){
+        stage('Test'){ 
             steps{
                 echo "********Application testing********"
             }
