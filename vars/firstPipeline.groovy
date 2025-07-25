@@ -19,7 +19,7 @@ def call(Map pipelineParams){
                 script{
                     echo "calling add method"
                     echo  "printinf the sum of values"
-                    println calculaotr.add(4,5)
+                    println calculator.add(4,5)
                 }
             }
         }
